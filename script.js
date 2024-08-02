@@ -17,3 +17,10 @@ names.forEach((name, index) => {
   console.log(`${name} (${provinces[index]})`);
 });
 
+//Use map to create a new array of province names in all uppercase. Log the new array to the console.
+const provincesInUppercase = provinces.map(province => province.toUpperCase());
+console.log(provincesInUppercase);
+
+//Create a new array using map that contains the length of each name.
+lengthOfEachName = names.map (name => name.length);
+console.log(lengthOfEachName);
