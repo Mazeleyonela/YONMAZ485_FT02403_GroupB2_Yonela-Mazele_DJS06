@@ -24,3 +24,51 @@ console.log(provincesInUppercase);
 //Create a new array using map that contains the length of each name.
 lengthOfEachName = names.map (name => name.length);
 console.log(lengthOfEachName);
+
+//Use sort to alphabetically sort the provinces.
+const sortedProvinces = [...provinces].sort();
+console.log(sortedProvinces);
+
+//Use filter to remove provinces containing "Cape". Log the count of remaining provinces.
+const filteredProvinces = provinces.filter(province => !province.includes('Cape'));
+console.log(filteredProvinces.length);
+
+//Create a boolean array using map and some to determine if a name contains the letter 'S'.
+const containsS = names.map(name => name.includes('S'));
+console.log(containsS);
+
+//Use reduce to transform the names array into an object mapping names to their respective provinces
+const namesToProvinces = names.reduce((obj, name, index) => {
+    obj[name] = provinces[index];
+    return obj;
+  }, {});
+  console.log(namesToProvinces);
+
+//Iterate over the products array, logging each product name.
+console.log(products.map(product => product.product));
+
+console.log(products.filter(product => product.product.length <= 5));
+
+console.log(products
+    .filter(product => product.price.trim() !== '')
+    .map(product => parseFloat(product.price))
+    .reduce((total, price) => total + price, 0)
+  );
+  
+  console.log(products.reduce((str, product) => str + product.product, ''));
+  
+// Identify the highest and lowest-priced items, returning a string formatted as "Highest: X. Lowest: Y."
+  const prices = products
+  .filter(product => product.price.trim() !== '')
+  .map(product => parseFloat(product.price));
+
+const highest = Math.max(...prices);
+const lowest = Math.min(...prices);
+
+console.log(`Highest: ${highest}. Lowest: ${lowest}.`);
+
+console.log(products.reduce((newObj, product) => {
+    newObj.push({ name: product.product, cost: product.price });
+    return newObj;
+  }, []));
+  
